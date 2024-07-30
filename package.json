@@ -8,14 +8,11 @@
   "scripts": {
     "cleanup": "rimraf dist",
     "build": "ng build",
-    "build:docs": "rimraf demo/node_modules/ngx-virtual-scroller && cd dist && copyfiles **/* ../demo/node_modules/ngx-virtual-scroller && cd .. && rimraf docs && mkdir docs && cd demo && npm run build && cd dist/demo && copyfiles **/* ../../../docs && cd ../../.. && replace \"<base href=\\\"/\\\">\" \"<base href=\\\"/ngx-virtual-scroller/\\\">\" docs/index.html",
-    "build:all": "npm run build && npm run build:docs",
     "lint": "tslint src/**/*.ts",
-    "debug-demo": "npm run build:all && cd demo && npm run start",
     "ngc": "ngc",
     "update-npm-versions": "npm-check --skip-unused --update-all --save-exact --ignore typescript --ignore @tweenjs/tween.js --ignore @types/tween.js",
     "prepublishOnly": "PLEASE RUN \"npm run prod-publish\" NOT \"npm publish\"",
-    "prod-publish": "npm run build:all && npm publish ./dist",
+    "prod-publish": "npm run build && npm publish ./dist",
     "publish-test": "npm pack ./dist"
   },
   "repository": {
